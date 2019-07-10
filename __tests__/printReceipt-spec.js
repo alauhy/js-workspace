@@ -5,7 +5,7 @@ it('should return -1 when invoke getName given id=0000', () => {
           //when
           const result = prinntRec.getName(id);
           //then
-          expect(result).toBe("[ERROR]:no such id");
+          expect(result).toBe(-1);
 });
 it('should return  Coca Cola when invoke getName given id=0001', () => {
           //given 
@@ -29,7 +29,7 @@ it('should return -1 when invoke getPrice given id=0000', () => {
           //when
           const result = prinntRec.getPrice(id);
           //then
-          expect(result).toBe("[ERROR]:no such id");
+          expect(result).toBe(-1);
 });
 it('should return result when invoke countGoodsAmount given data ', () => {
           //given 
@@ -58,6 +58,14 @@ it('should return 20 when invoke getGoodsTotalPrice given such following data ',
           const result = prinntRec.getGoodsTotalPrice(data);
           //then
           expect(result).toStrictEqual(20);
+});
+it('should return \'[ERROR]:id is not valid\' invoke getGoodsTotalPrice given such following data ', () => {
+    //given 
+    const data = ['0000', '0003', '0005', '0003'];
+    //when
+    const result = prinntRec.printReceipt(data);
+    //then
+    expect(result).toBe('[ERROR]:id is not valid');
 });
 it('should return result when invoke getGoodsTotalPrice given such following data ', () => {
           //given 
